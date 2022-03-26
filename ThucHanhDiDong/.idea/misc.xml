@@ -4,8 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/ThucHanhDiDong/app/src/main/res/drawable/badge_background.xml" value="0.236" />
-        <entry key="..\:/ThucHanhDiDong/app/src/main/res/layout/activity_dang_nhap.xml" value="0.259375" />
-        <entry key="..\:/ThucHanhDiDong/app/src/main/res/layout/activity_main.xml" value="0.259375" />
+        <entry key="..\:/ThucHanhDiDong/app/src/main/res/drawable/bg_green_border_button.xml" value="0.1795" />
+        <entry key="..\:/ThucHanhDiDong/app/src/main/res/drawable/bg_green_button.xml" value="0.1" />
+        <entry key="..\:/ThucHanhDiDong/app/src/main/res/drawable/bg_green_corner_button.xml" value="0.1" />
+        <entry key="..\:/ThucHanhDiDong/app/src/main/res/drawable/bg_red_border_button.xml" value="0.1" />
+        <entry key="..\:/ThucHanhDiDong/app/src/main/res/drawable/custom_button.xml" value="0.176" />
+        <entry key="..\:/ThucHanhDiDong/app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml" value="0.1" />
+        <entry key="..\:/ThucHanhDiDong/app/src/main/res/drawable/ic_baseline_star_rate_24.xml" value="0.1" />
+        <entry key="..\:/ThucHanhDiDong/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/ThucHanhDiDong/app/src/main/res/drawable/side_nav_bar.xml" value="0.1" />
+        <entry key="..\:/ThucHanhDiDong/app/src/main/res/layout/activity_dang_nhap.xml" value="0.264" />
+        <entry key="..\:/ThucHanhDiDong/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/ThucHanhDiDong/app/src/main/res/layout/activity_sign_in.xml" value="0.259375" />
         <entry key="..\:/ThucHanhDiDong/app/src/main/res/layout/activity_sign_up.xml" value="0.259375" />
         <entry key="..\:/ThucHanhDiDong/app/src/main/res/layout/fragment_address.xml" value="0.259375" />

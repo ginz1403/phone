@@ -83,8 +83,22 @@ public class FullNameFragment extends Fragment {
             Bundle bundle = new Bundle();
             bundle.putString("firstname", tvFirstName.getText().toString());
             bundle.putString("lastname", tvLastName.getText().toString());
-            navController.navigate(R.id.action_fullNameFragment_to_addressFragment, bundle);
+            if(bundle.getString("firstname").isEmpty())
+            {
+                if(bundle.getString("lastname").isEmpty()){
+                    tvFirstName.setError("Khong de trong");
+                    tvLastName.setError("Khong de trong");
+                }else {
+                    tvFirstName.setError("Khong de trong");
+                }
+            }
+            else if (bundle.getString("lastname").isEmpty()){
+                tvLastName.setError("Khong de trong");
 
+            }else {
+                navController.navigate(R.id.action_fullNameFragment_to_addressFragment, bundle);
+
+            }
         });
 
     }

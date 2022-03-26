@@ -90,8 +90,23 @@ public class AddressFragment extends Fragment {
             bundle.putString("mobile", tvMobile.getText().toString());
             bundle.putString("firstname", getArguments().getString("firstname"));
             bundle.putString("lastname", getArguments().getString("lastname"));
+            if(bundle.getString("address").isEmpty())
+            {
+                if(bundle.getString("mobile").isEmpty()){
+                    tvAddress.setError("Khong de trong");
+                    tvMobile.setError("Khong de trong");
+                }else {
+                    tvAddress.setError("Khong de trong");
+                }
+            }
+            else if (bundle.getString("mobile").isEmpty()){
+                tvMobile.setError("Khong de trong");
 
-            navController.navigate(R.id.action_addressFragment_to_usernamePasswordFragment, bundle);
+            }else {
+                navController.navigate(R.id.action_addressFragment_to_usernamePasswordFragment, bundle);
+
+            }
+
         });
     }
 }

@@ -38,6 +38,7 @@ public class UsernamePasswordFragment extends Fragment {
     FirebaseAuth fAuth;
     FirebaseDatabase fDatabase;
     String userID;
+    String emailPattern="[a-zA-z0-9._-]+@[a-z]+\\.+[a-z]+";
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -107,15 +108,36 @@ public class UsernamePasswordFragment extends Fragment {
             String email = tvEmail.getText().toString();
             String password = tvPassword.getText().toString();
             String confirmpassword= tvConfirmPassword.getText().toString();
-            if(!password.equals(confirmpassword)){
-                tvConfirmPassword.setError("Password not match both field");
+            if(email.isEmpty()){
+                if(password.isEmpty()){
+                    if(confirmpassword.isEmpty()){
+                        tvEmail.setError("Vui lòng nhập tài khoản");
+                        tvPassword.setError("Vui lòng nhập mật khẩu");
+                        tvConfirmPassword.setError("Không được để trống");
+                    }else {
+                        tvEmail.setError("Vui lòng nhập tài khoản");
+                        tvPassword.setError("Vui lòng nhập mật khẩu");
+                    }
+                }else {
+                    tvEmail.setError("Vui lòng nhập tài khoản");
+                }
+            }else if(!email.matches(emailPattern))
+            {
+                tvEmail.setError("Email không hợp lệ");
+            }
+            else if(password.length()<6){
+                 tvPassword.setError("Độ dài phải 6 kí tự trở lên");
+            }else if(confirmpassword.length()<6){
+                tvConfirmPassword.setError("Độ dài phải 6 kí tự trở lên");
+            }else if(!password.equals(confirmpassword)){
+                tvConfirmPassword.setError("Mật khẩu không khớp");
             }
             else {
                 fAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
-                                if(task.isComplete()){
+                                if(task.isSuccessful()){
                                     userID = fAuth.getCurrentUser().getUid();
                                     DatabaseReference databaseReference = fDatabase.getReference();
 
@@ -140,10 +162,11 @@ public class UsernamePasswordFragment extends Fragment {
                                                 @Override
                                                 public void onFailure(@NonNull Exception e) {
                                                     Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-
                                                 }
                                             });
-
+                                    Toast.makeText(getContext(), "OKE", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getContext(), DangNhapActivity.class);
+                                    startActivity(intent);
                                 }
                             }
                         })
@@ -151,13 +174,9 @@ public class UsernamePasswordFragment extends Fragment {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-
                             }
                         });
-
             }
-
-
         });}
 
 }
